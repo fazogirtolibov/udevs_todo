@@ -8,6 +8,7 @@ abstract class LocalDataSource {
   Future<void> addModel(EventModel model);
   Future<List<int>> getFirst3EventsColorIndexes(String date);
   Future<void> deleteAnEvent(int id);
+  Future<void> updateAnEvent(EventModel model);
 }
 
 class LocalDataSourceImpl implements LocalDataSource {
@@ -37,5 +38,11 @@ class LocalDataSourceImpl implements LocalDataSource {
   @override
   Future<void> deleteAnEvent(int id) async {
     await getIt<Database>().delete('events', where: 'id = ?', whereArgs: [id]);
+  }
+
+  @override
+  Future<void> updateAnEvent(EventModel model) async {
+    await getIt<Database>()
+        .update('events', model.toMap(), where: 'id = ${model.id}');
   }
 }

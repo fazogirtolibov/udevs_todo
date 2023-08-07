@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../constants/app_constants.dart';
-import '../../../../../constants/icons.dart';
+import '../../../constants/icons.dart';
 import '../../../constants/page_route.dart';
-import '../../../../../core/data/models/event_model.dart';
+import '../../../core/data/models/event_model.dart';
 import '../event_detail_page.dart';
-
 
 class WEventPreview extends StatelessWidget {
   const WEventPreview({
     super.key,
     required this.model,
+    required this.index,
   });
   final EventModel model;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class WEventPreview extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        material(page: EventDetailPage(model: model)),
+        material(page: EventDetailPage(index: index)),
       ),
       child: Stack(
         alignment: Alignment.topCenter,

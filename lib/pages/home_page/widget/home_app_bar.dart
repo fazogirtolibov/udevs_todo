@@ -28,6 +28,7 @@ class WHomeAppBar extends StatelessWidget {
               DateTime selectedDate = DateTime.now();
               customShowBottomSheet(
                   context: context,
+                  buttonTitle: 'Go',
                   onTapButton: () {
                     Navigator.pop(context);
                     context

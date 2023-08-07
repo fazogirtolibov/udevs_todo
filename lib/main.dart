@@ -15,7 +15,7 @@ import 'core/widgets/custom_popups.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DatabaseService().database;
-  setUp();
+  await setUp();
 
   runApp(const MyApp());
 }

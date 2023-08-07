@@ -11,6 +11,7 @@ abstract class HomeRepository {
       String date);
 
   Future<Either<StorageFailure, void>> deleteAnEvent(int id);
+  Future<Either<StorageFailure, void>> updateAnEvent(EventModel model);
 }
 
 class HomeRepositoryImpl implements HomeRepository {
@@ -51,6 +52,16 @@ class HomeRepositoryImpl implements HomeRepository {
   Future<Either<StorageFailure, void>> deleteAnEvent(int id) async {
     try {
       await getIt<LocalDataSource>().deleteAnEvent(id);
+      return Right(null);
+    } catch (e) {
+      return Left(StorageFailure(errorMessage: 'Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<StorageFailure, void>> updateAnEvent(EventModel model) async {
+    try {
+      await getIt<LocalDataSource>().updateAnEvent(model);
       return Right(null);
     } catch (e) {
       return Left(StorageFailure(errorMessage: 'Something went wrong'));

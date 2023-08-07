@@ -60,14 +60,29 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
         final List<EventModel> newModels = List.from(state.models);
         newModels.remove(event.model);
         emit(state.copyWith(models: newModels));
-
-        final result = await _repository.deleteAnEvent(event.model.id);
+        final result = await _repository.deleteAnEvent(event.model.id!);
         result.either((value) {
           event.onFailure(value.errorMessage);
         }, (_) {
           event.onSuccess();
         });
       }
+    });
+    on<_UpdateAnEvent>((event, emit) async {
+      final result =
+          await getIt<HomeRepository>().updateAnEvent(event.newModel);
+      result.either((fail) {
+        event.onFailure(fail.errorMessage);
+      }, (value) {
+        final index = state.models.indexWhere((e) => e.id == event.newModel.id);
+
+        if (index != -1) {
+          final List<EventModel> newModels = List.from(state.models);
+          newModels[index] = event.newModel;
+          emit(state.copyWith(models: newModels));
+        }
+        event.onSuccess();
+      });
     });
   }
 }
