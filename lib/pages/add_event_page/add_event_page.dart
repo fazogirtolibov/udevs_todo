@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../constants/colors.dart';
-import '../../../../constants/constants.dart';
+import '../../constants/app_constants.dart';
 import '../../../../constants/icons.dart';
-import '../../../../constants/theme.dart';
+import '../../constants/app_theme.dart';
 import '../../../../core/bloc/calendar_bloc/calendar_bloc.dart';
 import '../../../../core/bloc/show_pop_up_bloc/show_pop_up_bloc.dart';
 import '../../../../core/data/models/event_model.dart';
@@ -69,7 +69,6 @@ class _AddEventPageState extends State<AddEventPage> {
             },
             child: const Text(
               'Yes',
-              style: TextStyle(color: greyText),
             ),
           )
         ],

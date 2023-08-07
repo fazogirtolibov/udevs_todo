@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../constants/constants.dart';
+import '../../../constants/app_constants.dart';
 import '../../../../../constants/icons.dart';
-import '../../../../../constants/navigator.dart';
+import '../../../constants/page_route.dart';
 import '../../../../../core/data/models/event_model.dart';
 import '../event_detail_page.dart';
 
