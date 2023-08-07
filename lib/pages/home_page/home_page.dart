@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 WHomeAppBar(selectedDate: selectedDate ?? DateTime.now()),
                 Expanded(
                   child: ListView(
-                    padding: const EdgeInsets.symmetric(horizontal: 28),
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     children: [
                       SizedBox(
                         height: 320,

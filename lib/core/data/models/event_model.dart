@@ -8,7 +8,7 @@ class EventModel extends Equatable {
   final String time;
   final String location;
   final int colorIndex;
-  EventModel({
+  const EventModel({
     this.id,
     required this.day,
     required this.name,

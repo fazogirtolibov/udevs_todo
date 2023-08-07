@@ -101,6 +101,7 @@ class EventDetailPage extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 10),
                           child: Row(
                             children: [
+                              // ignore: deprecated_member_use
                               SvgPicture.asset(AppIcons.clock, color: white),
                               const SizedBox(width: 4),
                               Text(
@@ -118,6 +119,7 @@ class EventDetailPage extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 10),
                           child: Row(
                             children: [
+                              // ignore: deprecated_member_use
                               SvgPicture.asset(AppIcons.location, color: white),
                               const SizedBox(width: 4),
                               Expanded(
@@ -181,12 +183,11 @@ class EventDetailPage extends StatelessWidget {
                 margin: const EdgeInsets.all(28),
                 borderRadius: 10,
                 height: 50,
-                color: red.withOpacity(0.2),
+                color: grey.withOpacity(0.2),
                 onTap: () {
                   customShowDialog(
                       context: context,
-                      content:
-                          const Text('Do you want to delete this task?'),
+                      content: const Text('Do you want to delete this task?'),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(context),
